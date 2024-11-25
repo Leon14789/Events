@@ -4,6 +4,7 @@
 
 @section('content')
 <div class="container-fluid px-1 py-5 mx-auto">
+@include('components.notify')
     <div class="row d-flex justify-content-center">
         <div class="col-xl-7 col-lg-8 col-md-9 col-9 text-center">
             <div class="card">

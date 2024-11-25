@@ -26,6 +26,7 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
+        
        try {
         $event = Event::create([
             'name' => $request->name,
@@ -38,7 +39,7 @@ class EventController extends Controller
         ->with([ 'message' => 'Evento cadastrado com sucesso!', 'class' => 'alert-success' ]);
 
        } catch (Exception $e) {
-        return redirect()->route('dashboard')
+        return redirect()->back()
         ->with([ 'message' => 'Algo deu errado tente novamente mais tarde!', 'class' => 'alert-danger' ]);
 
        }

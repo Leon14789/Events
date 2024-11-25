@@ -26,10 +26,26 @@ class StudentController extends Controller
 
     public function store(Request $request)
     {
+        try {
+            $student = Student::create([
+                'name' => $request->name,
+                'rg' => $request->rg,
+                'class' => $request->class,
+                'period' => $request->period,
+                'activity_id' => $request->activity_id
+                
+            ]);
+            $student->save();
+            return redirect()->route('activity-details', ['activityId' => $request->activity_id])
+            ->with([ 'message' => 'Cadastro realizado com sucesso!', 'class' => 'alert-success' ]);
+        
+        } catch (Exception $e) {
+            return redirect()->back()
+            ->with([ 'message' => 'Algo deu errado tente novamente mais tarde!', 'class' => 'alert-danger' ]);
+    
+           }
 
-        Student::create($request->all());
-        return redirect()->route('activity-details', ['activityId' => $request->activity_id])
-        ->with([ 'message' => 'Cadastro realizado com sucesso!', 'class' => 'alert-success' ]);
+       
 
     }
 
