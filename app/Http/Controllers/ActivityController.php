@@ -43,7 +43,6 @@ class ActivityController extends Controller
                 'description' => $request->description,
                 'vacancies' => $request->vacancies,
                 'event_id' => $request->event_id,
-                'vacancies_filled' => $request->vacancies_filled,
                 'supervisor' => $request->supervisor,
 
 

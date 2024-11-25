@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Activity;
 use App\Models\Student;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+
 class StudentController extends Controller
 {
     /**
@@ -19,7 +21,7 @@ class StudentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function create( $activityId)
+    public function create($activityId)
     {
         return view('student.registerStudent', ['activity_Id' => $activityId]);
     }
@@ -33,20 +35,22 @@ class StudentController extends Controller
                 'class' => $request->class,
                 'period' => $request->period,
                 'activity_id' => $request->activity_id
-                
+
             ]);
             $student->save();
+
+            $SearchingForActivityById = Activity::where('id', $request->activity_id)->first();
+           
+
+            if ($SearchingForActivityById) {
+                $SearchingForActivityById->increment('vacancies_filled');
+            } 
             return redirect()->route('activity-details', ['activityId' => $request->activity_id])
-            ->with([ 'message' => 'Cadastro realizado com sucesso!', 'class' => 'alert-success' ]);
-        
+                ->with(['message' => 'Cadastro realizado com sucesso!', 'class' => 'alert-success']);
         } catch (Exception $e) {
             return redirect()->back()
-            ->with([ 'message' => 'Algo deu errado tente novamente mais tarde!', 'class' => 'alert-danger' ]);
-    
-           }
-
-       
-
+                ->with(['message' => 'Algo deu errado tente novamente mais tarde!', 'class' => 'alert-danger']);
+        }
     }
 
     /**
@@ -75,11 +79,10 @@ class StudentController extends Controller
             $student = Student::find($id);
             $student->delete();
             return redirect()->back()
-            ->with([ 'message' => 'Aluno deletado com sucesso!', 'class' => 'alert-success' ]);
+                ->with(['message' => 'Aluno deletado com sucesso!', 'class' => 'alert-success']);
         } catch (Exception $e) {
             return redirect()->back()
-            ->with([ 'message' => 'Algo deu errado tente novamente mais tarde!', 'class' => 'alert-danger' ]);
-
+                ->with(['message' => 'Algo deu errado tente novamente mais tarde!', 'class' => 'alert-danger']);
         }
     }
 }

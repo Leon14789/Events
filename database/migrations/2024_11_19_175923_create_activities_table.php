@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('description')->nullable()->default('Descrição não anexada');
             $table->integer('vacancies');
             $table->foreignId('event_id')->constrained()->onDelete('cascade');
-            $table->unsignedBigInteger('vacancies_filled')->nullable();
+            $table->unsignedBigInteger('vacancies_filled')->default(0);
             $table->string('supervisor')->nullable()->default('Supervisor não Anexado');
             $table->softDeletes();
             $table->timestamps();
