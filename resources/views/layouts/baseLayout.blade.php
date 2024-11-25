@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="/assets/css/main.css" />
 	</head>
 	<body class="homepage is-preload">
+		<x-menu />
 		<div id="page-wrapper">
         @yield('content')
 			
