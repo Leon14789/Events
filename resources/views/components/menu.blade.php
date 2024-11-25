@@ -3,12 +3,12 @@
 	<div class="inner">
 
 		<!-- Logo -->
-		<h1><a href="index.html" id="logo">ETEC ELIAS MIGUEL JUNIOR</a></h1>
+		<h1><a href="index.html" class="link" id="logo">ETEC ELIAS MIGUEL JUNIOR</a></h1>
 
 		<!-- Nav -->
 		<nav id="nav">
 			<ul>
-				<li><a href="#">
+				<li><a href="{{route('register')}}">
 						<i class="fa fa-users" aria-hidden="true"></i>
 						Cadastrar ADM
 					</a>
@@ -18,7 +18,7 @@
 						Criar Evento
 					</a>
 				</li>
-				<li><a href="#">
+				<li><a href="{{route('dashboard')}}">
 						<i class="fa fa-folder-open" aria-hidden="true"></i>
 						Listar Eventos
 					</a>

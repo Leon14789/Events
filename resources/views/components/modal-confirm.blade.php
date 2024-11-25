@@ -1,4 +1,8 @@
-<!-- Button trigger modal -->
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                                Launch demo modal
+                            </button>
+                            <x-modal-confirm />
  
 
 <!-- Modal -->

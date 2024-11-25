@@ -14,25 +14,21 @@
                         <section class="box article-list">
                             <h2 class="icon fa-file-alt">ULTIMOS EVENTOS</h2>
 
-                            <!-- Excerpt -->
+                             <!-- Excerpt -->
+                             @foreach($events as $event)
                             <article class="box excerpt">
-                                <a href="#" class="image left"><img src="/assets/images/pic04.jpg" alt="" /></a>
-                                <div>
+                                <a href="{{ route('available-activities', [$event->id]) }}" class="image left">
+                                    <img src="/assets/images/pic04.png" alt="" /></a>
+                                <div class="event-container">
                                     <header>
-                                        <span class="date">DATA DO EVENTO</span>
-                                        <h3><a href="#">TITULO DO EVENTO</a></h3>
+                                        <span class="date">Data do Evento: {{ $event->date }} </span>
+                                        <h3><a href="{{ route('available-activities', [$event->id]) }}">{{ $event->name }}</a></h3>
                                     </header>
-                                    <p>
-                                        DESCRIÇÃO DO EVENTO
-                                    </p>
                                 </div>
                             </article>
+                            @endforeach
 
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                                Launch demo modal
-                            </button>
-                            <x-modal-confirm />
+                          
                         </section>
                     </div>
                 </div>

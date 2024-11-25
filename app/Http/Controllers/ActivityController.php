@@ -4,19 +4,30 @@ namespace App\Http\Controllers;
 
 use App\Models\Activity;
 use App\Models\Event;
+use App\Services\StudentService;
 use Exception;
 use Illuminate\Http\Request;
 
 class ActivityController extends Controller
 {
+    protected $studentService;
+
+    public function __construct(StudentService $studentService)
+    {
+        $this->studentService = $studentService;
+    }
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $event = Event::findOrFail($id);
+        $activities = $event->activities;
+        return view('administrative.activitiesIndex', compact('event', 'activities'));
     }
-    public function create($eventId) {
+
+    public function create($eventId)
+    {
         return view('administrative.createActivity', ['eventId' => $eventId]);
     }
     /**
@@ -35,14 +46,13 @@ class ActivityController extends Controller
                 'vacancies_filled' => $request->vacancies_filled,
                 'supervisor' => $request->supervisor,
 
-                
+
             ]);
             $activity->save();
-            return redirect()->route('list-activity', ['eventId' => $activity->event_id]);
-    
-           } catch (Exception $e) {
-                return redirect()->route('dashboard');
-           }
+            return redirect()->route('list-activities', ['eventId' => $activity->event_id]);
+        } catch (Exception $e) {
+            return redirect()->route('dashboard');
+        }
     }
 
     /**
@@ -50,9 +60,10 @@ class ActivityController extends Controller
      */
     public function show(string $id)
     {
-        $event = Event::findOrFail($id);
-        $activities = $event->activities;
-        return view('administrative.activitiesIndex', compact('event', 'activities'));
+        $activity = Activity::findOrFail($id);
+        $students = $this->studentService->getStudentsByActivityId($id);
+
+        return view('administrative.activity', compact('activity', 'students'));
     }
 
     /**
@@ -68,7 +79,6 @@ class ActivityController extends Controller
      */
     public function destroy(string $id)
     {
-
         try {
             $activity = Activity::find($id);
             $activity->delete();

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
+use Exception;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Validator;
 class StudentController extends Controller
 {
     /**
@@ -17,9 +19,17 @@ class StudentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+    public function create( $activityId)
+    {
+        return view('student.registerStudent', ['activity_Id' => $activityId]);
+    }
+
     public function store(Request $request)
     {
-        //
+
+        Student::create($request->all());
+        return redirect()->route('activity-details', ['activityId' => $request->activity_id])
+        ->with('success', 'Cadastro realizado com sucesso!');
     }
 
     /**
@@ -27,7 +37,8 @@ class StudentController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $students = Student::where('activity_id', $id)->get();
+        return $students;
     }
 
     /**
@@ -43,6 +54,12 @@ class StudentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $student = Student::find($id);
+            $student->delete();
+            return redirect()->back();
+        } catch (Exception $e) {
+            return redirect()->back();
+        }
     }
 }

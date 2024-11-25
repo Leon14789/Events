@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('class');
+            $table->string('period');
             $table->string('rg');
             $table->unsignedBigInteger('activity_id')->nullable();
             $table->timestamps();

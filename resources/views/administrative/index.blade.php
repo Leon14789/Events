@@ -18,12 +18,12 @@
                             <!-- Excerpt -->
                             @foreach($events as $event)
                             <article class="box excerpt">
-                                <a href="#" class="image left">
+                                <a href="{{ route('list-activities', [$event->id]) }}" class="image left">
                                     <img src="/assets/images/pic04.png" alt="" /></a>
                                 <div class="event-container">
                                     <header>
                                         <span class="date">Data do Evento: {{ $event->date }} </span>
-                                        <h3><a href="{{ route('list-activity', [$event->id]) }}">{{ $event->name }}</a></h3>
+                                        <h3><a href="{{ route('list-activities', [$event->id]) }}">{{ $event->name }}</a></h3>
                                     </header>
                                     <div>
                                         <form action="{{ route('destroy-event', [$event->id]) }}" method="POST" style="display:inline;">

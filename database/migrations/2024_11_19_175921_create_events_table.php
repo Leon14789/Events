@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->date('date');
             $table->longText('description')->nullable();
+            $table->boolean('status')->nullable()->default(false);
             $table->softDeletes();
             $table->timestamps();
         });

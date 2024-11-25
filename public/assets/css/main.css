@@ -2404,9 +2404,6 @@ ol.default li {
 		margin-bottom: 3em !important;
 	}
 
-	.wrapper {
-		padding: 3em 20px 3em 20px;
-	}
 
 	/* Banner */
 
@@ -2434,7 +2431,12 @@ ol.default li {
 }
 
 .link {
-	text-decoration: none;
+	text-decoration: none !important;
+}
+
+.link:hover {
+	text-decoration: none !important;
+	color: #fff;
 }
 
 .titleH3 {
@@ -2446,3 +2448,13 @@ ol.default li {
 	justify-content: space-between;
 	align-items: center;
 }
+
+a:hover {
+	color: var(--secondary);
+  }
+
+  .select {
+	background: #fff !important;
+	border-radius: 5px;
+	padding: 5px 1em !important;
+  }
