@@ -49,9 +49,11 @@ class ActivityController extends Controller
 
             ]);
             $activity->save();
-            return redirect()->route('list-activities', ['eventId' => $activity->event_id]);
+            return redirect()->route('list-activities', ['eventId' => $activity->event_id])
+            ->with([ 'message' => 'Atividade cadastrada com sucesso!', 'class' => 'alert-success' ]);
         } catch (Exception $e) {
-            return redirect()->route('dashboard');
+            return redirect()->route('dashboard')
+            ->with([ 'message' => 'Algo deu errado tente novamente mais tarde!', 'class' => 'alert-danger' ]);
         }
     }
 
@@ -82,9 +84,12 @@ class ActivityController extends Controller
         try {
             $activity = Activity::find($id);
             $activity->delete();
-            return redirect()->back();
+            return redirect()->back()
+            ->with([ 'message' => 'Atividade deletada com sucesso!', 'class' => 'alert-success' ]);
+            
         } catch (Exception $e) {
-            return redirect()->back();
+            return redirect()->back()
+            ->with([ 'message' => 'Algo deu errado tente novamente mais tarde!', 'class' => 'alert-danger' ]);
         }
     }
 }

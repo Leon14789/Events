@@ -7,6 +7,7 @@
     <div class="wrapper style3">
         <div class="inner">
             <div class="container">
+            @include('components.notify')
                 <div class="row">
                     <div class="col-12 col-12-medium">
 

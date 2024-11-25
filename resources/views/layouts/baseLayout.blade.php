@@ -11,7 +11,8 @@
 	<body class="homepage is-preload">
 		<x-menu />
 		<div id="page-wrapper">
-        @yield('content')
+			@yield('content')
+			@include('components.notify')
 			
 			<x-footer />
 		</div>

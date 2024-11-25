@@ -29,7 +29,8 @@ class StudentController extends Controller
 
         Student::create($request->all());
         return redirect()->route('activity-details', ['activityId' => $request->activity_id])
-        ->with('success', 'Cadastro realizado com sucesso!');
+        ->with([ 'message' => 'Cadastro realizado com sucesso!', 'class' => 'alert-success' ]);
+
     }
 
     /**
@@ -57,9 +58,12 @@ class StudentController extends Controller
         try {
             $student = Student::find($id);
             $student->delete();
-            return redirect()->back();
+            return redirect()->back()
+            ->with([ 'message' => 'Aluno deletado com sucesso!', 'class' => 'alert-success' ]);
         } catch (Exception $e) {
-            return redirect()->back();
+            return redirect()->back()
+            ->with([ 'message' => 'Algo deu errado tente novamente mais tarde!', 'class' => 'alert-danger' ]);
+
         }
     }
 }

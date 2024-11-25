@@ -34,10 +34,13 @@ class EventController extends Controller
             
         ]);
         $event->save();
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard')
+        ->with([ 'message' => 'Evento cadastrado com sucesso!', 'class' => 'alert-success' ]);
 
        } catch (Exception $e) {
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard')
+        ->with([ 'message' => 'Algo deu errado tente novamente mais tarde!', 'class' => 'alert-danger' ]);
+
        }
     }
 
@@ -65,9 +68,14 @@ class EventController extends Controller
        try {
         $event = Event::find($id);
         $event->delete();
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard')
+        ->with([ 'message' => 'Evento deletado com sucesso!', 'class' => 'alert-success' ]);
+
        } catch (Exception $e) {
-            return redirect()->route('dashboard');
+            return redirect()->route('dashboard')
+            ->with([ 'message' => 'Algo deu errado tente novamente mais tarde!', 'class' => 'alert-danger' ]);
+
+
        }
     }
 }

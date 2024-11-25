@@ -7,13 +7,12 @@
 		<link rel="icon" href="/assets/images/Logo.png" type="image/png">
 		<link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="/assets/css/main.css" />
-
+		
 	</head>
 	<body class="homepage is-preload">
 		<div id="page-wrapper">
 			<x-menu />
-        @yield('content')
-			
+			@yield('content')
 		</div>
 
 		<!-- Scripts -->
@@ -22,6 +21,7 @@
 			<script src="/assets/js/browser.min.js"></script>
 			<script src="/assets/js/breakpoints.min.js"></script>
 			<script src="/assets/js/util.js"></script>
+			<script src="/assets/js/boostrap.min.js"></script>
 			<script src="/assets/js/main.js"></script>
 
 	</body>
