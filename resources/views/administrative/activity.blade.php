@@ -20,7 +20,7 @@
                                         <span class="date">DATA {{$activity->date}}</span>
                                         <h3><a href="#">CONDUTOR(A): {{$activity->supervisor}} </a></h3>
                                     </header>
-                                    <p> {{$activity->description}} </p>
+                                    <div>{!! $activity->description !!}</div>
                                 </div>
                             </article>
 

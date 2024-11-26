@@ -21,7 +21,7 @@
                                         <span class="date">DATA {{$activity->date}}</span>
                                         <h3>CONDUTOR(A): {{$activity->supervisor}} </h3>
                                     </header>
-                                    <p> {{$activity->description}} </p>
+                                    <div>{!! $activity->description !!}</div>
                                 </div>
                             </article>
 
