@@ -9,11 +9,6 @@
 		<nav id="nav">
 			<ul>
 				@auth
-				<li><a href="{{route('register')}}">
-						<i class="fa fa-users" aria-hidden="true"></i>
-						Cadastrar ADM
-					</a>
-				</li>
 				<li><a href="{{ route('create-event') }}">
 						<i class="fa fa-book" aria-hidden="true"></i>
 						Criar Evento

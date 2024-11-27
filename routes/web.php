@@ -43,10 +43,6 @@ Route::middleware('auth')->group(function () {
     
 });
 
-Route::get('dunga-burro', function () { 
-    return view('student.registerStudent');});
-
-
 
 
 require __DIR__.'/auth.php';

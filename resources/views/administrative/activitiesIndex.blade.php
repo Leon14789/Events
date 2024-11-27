@@ -22,7 +22,7 @@
                             @foreach($activities as $activity)
                             <article class="box excerpt d-flex justify-content-around">
                                 <a href="{{route('activity', [$activity->id]  )}}" class="image left">
-                                    <img src="{{ $activity->image ? asset('storage/' . $activity->image) : '/assets/images/pic04.png' }}" alt="{{ $event->name }}" />
+                                    <img src="{{ $activity->image ? asset('storage/' . $activity->image) : '/assets/images/Defalt.png' }}" alt="{{ $event->name }}" />
                                     <div class="event-container">
                                         <header>
                                             <span class="date">Dia:{{$activity->date ?? 'Dia não definido'}} às: {{$activity->hours ?? 'Horario não definido'}} </span>

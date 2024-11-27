@@ -19,7 +19,8 @@
                             <article class="box excerpt">
                                 @if($activity->vacancies_filled >= $activity->vacancies)
                                 <div class="image left">
-                                    <img src="/assets/images/pic04.png" alt="" />
+                                <img class="imagemActivity" src="{{ $activity->image ? asset('storage/' . $activity->image) : '/assets/images/Defalt.png' }}" alt="{{ $activity->name }}" />
+
                                 </div>
                                 <div class="event-container">
                                     <header>
@@ -31,7 +32,7 @@
                                 </div>
                                 @else
                                 <a href="{{ route('activity-details', [$activity->id]) }}" class="image left">
-                                    <img src="/assets/images/pic04.png" alt="" />
+                                <img class="imagemActivity" src="{{ $activity->image ? asset('storage/' . $activity->image) : '/assets/images/Defalt.png' }}" alt="{{ $activity->name }}" />
                                 </a>
                                 <div class="event-container">
                                     <header>
