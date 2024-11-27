@@ -39,6 +39,8 @@ Route::middleware('auth')->group(function () {
     
     Route::delete('destroy-student/{studentId}', [StudentController::class, 'destroy'])->name('destroy-student');
 
+    Route::post('/end-event/{eventId}', [EventController::class, 'update'])->name('end.event');
+    Route::post('/resume-event/{eventId}', [EventController::class, 'resume'])->name('resume.event');
     
     
 });

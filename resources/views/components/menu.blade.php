@@ -14,11 +14,6 @@
 						Criar Evento
 					</a>
 				</li>
-				<li><a href="{{ route('profile.edit') }}">
-						<i class="fa fa-user" aria-hidden="true"></i>
-						Perfil
-					</a>
-				</li>
 				<li><a href="{{route('dashboard')}}">
 						<i class="fa fa-folder-open" aria-hidden="true"></i>
 						Listar Eventos

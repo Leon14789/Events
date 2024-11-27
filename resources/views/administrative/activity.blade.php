@@ -14,7 +14,7 @@
                         <section class="box article-list">
                             <h2 class="icon fa-file-alt">{{$activity->name}}</h2>
                             <article class="box excerpt d-flex">
-                                <img class="imagemActivity" src="{{ $activity->image ? asset('storage/' . $activity->image) : '/assets/images/pic03.jpg' }}" alt="{{ $activity->name }}" />
+                                <img class="imagemActivity" src="{{ $activity->image ? asset('storage/' . $activity->image) : '/assets/images/Defalt.png' }}" alt="{{ $activity->name }}" />
                                   
                                 <div class="ml-2">
                                     <header>

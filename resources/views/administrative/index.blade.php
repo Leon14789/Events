@@ -33,7 +33,19 @@
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger link">DELETAR</button>
                                         </form>
-                                        <button type="submit" class="btn btn-warning text-white">ENCERRAR</button>
+
+                                        @if($event->status)
+                                        <form action="{{ route('resume.event', [$event->id]) }}" method="POST" style="display:inline;">
+                                                @csrf
+                                                <button type="submit" class="btn btn-success link text-white">RETOMAR EVENTO</button>
+                                            </form>
+                                        @else
+                                            <form action="{{ route('end.event', [$event->id]) }}" method="POST" style="display:inline;">
+                                                @csrf
+                                                <button type="submit" class="btn btn-warning link text-white">ENCERRAR</button>
+                                            </form>
+                                        @endif
+
                                     </div>
                                 </div>
                             </article>

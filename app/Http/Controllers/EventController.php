@@ -65,9 +65,22 @@ class EventController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function resume(string $id)
     {
-        //
+        $event = Event::findOrFail($id);
+        $event->status = false; 
+        $event->save();
+
+        return redirect()->route('dashboard')->with([ 'message' => 'Evento remotado com sucesso!', 'class' => 'alert-success' ]);
+    }
+
+    public function update(string $id)
+    {
+        $event = Event::findOrFail($id);
+        $event->status = true; 
+        $event->save();
+
+        return redirect()->route('dashboard')->with([ 'message' => 'Evento encerrado com sucesso!', 'class' => 'alert-success' ]);
     }
 
     /**
