@@ -13,12 +13,13 @@
                         <!-- Article list -->
                         <section class="box article-list">
                             <h2 class="icon fa-file-alt">{{$activity->name}}</h2>
-                            <article class="box excerpt">
-                                <img class="image left" src="/assets/images/pic03.jpg" alt="" />
-                                <div>
+                            <article class="box excerpt d-flex">
+                                <img class="imagemActivity" src="{{ $activity->image ? asset('storage/' . $activity->image) : '/assets/images/pic03.jpg' }}" alt="{{ $activity->name }}" />
+                                  
+                                <div class="ml-2">
                                     <header>
                                         <span class="date">DATA {{$activity->date}}</span>
-                                        <h3><a href="#">CONDUTOR(A): {{$activity->supervisor}} </a></h3>
+                                        <h3>CONDUTOR(A): {{$activity->supervisor}} </h3>
                                     </header>
                                     <div>{!! $activity->description !!}</div>
                                 </div>

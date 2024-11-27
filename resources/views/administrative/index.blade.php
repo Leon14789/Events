@@ -20,7 +20,8 @@
                             @foreach($events as $event)
                             <article class="box excerpt">
                                 <a href="{{ route('list-activities', [$event->id]) }}" class="image left">
-                                    <img src="/assets/images/pic04.png" alt="" /></a>
+                                <img src="{{ $event->image ? asset('storage/' . $event->image) : '/assets/images/pic04.png' }}" alt="{{ $event->name }}" />
+                                </a>
                                 <div class="event-container">
                                     <header>
                                         <span class="date">Data do Evento: {{ $event->date }} </span>

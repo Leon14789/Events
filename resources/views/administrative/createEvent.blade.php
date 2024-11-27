@@ -10,12 +10,16 @@
             <div class="card">
                 <h3 class="titleH3">INSIRA OS DADOS PARA CRIAR UM EVENTO</h3>
 
-                <form class="form-card" action="{{ route('create-event') }}" method="POST">
+                <form class="form-card" action="{{ route('create-event') }}" method="POST"  enctype="multipart/form-data">
                     @csrf
 
                     <div class="row justify-content-between text-left">
                         <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">NOME DO EVENTO</label> <input type="text" id="name" name="name" placeholder="Coloque um nome bem criativo"> </div>
                         <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">DATA DO EVENTO</label> <input type="date" id="date" name="date"> </div>
+                    </div>
+                    <div class="form-group col-12 flex-column d-flex">
+                        <label class="form-control-label px-3">ADICIONE A ARTE DO EVENTO</label>
+                        <input type="file" name="image" id="image" accept="image/*">
                     </div>
                     <div class="form-group col-12 flex-column d-flex">
                         <label class="form-control-label px-3">DESCRIÇÃO DO EVENTO</label>

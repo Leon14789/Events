@@ -28,10 +28,19 @@ class EventController extends Controller
     {
         
        try {
+            $imagePath = null;
+            if ($request->image) {
+                $image = $request->file('image');
+                $imageName = time() . '_' . $image->getClientOriginalName();
+                $imagePath = $image->storeAs('Images/Eventos', $imageName, 'public');
+            }
+
+
         $event = Event::create([
             'name' => $request->name,
             'date' => $request->date,
             'description' => $request->description,
+            'image' => $imagePath,
             
         ]);
         $event->save();
@@ -40,7 +49,7 @@ class EventController extends Controller
 
        } catch (Exception $e) {
         return redirect()->back()
-        ->with([ 'message' => 'Algo deu errado tente novamente mais tarde!', 'class' => 'alert-danger' ]);
+        ->with([ 'message' => 'Algo deu errado tente novamente mais tarde!' . $e, 'class' => 'alert-danger' ]);
 
        }
     }

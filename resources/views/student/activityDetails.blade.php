@@ -14,8 +14,9 @@
                         <!-- Article list -->
                         <section class="box article-list">
                             <h2 class="icon fa-file-alt">{{$activity->name}}</h2>
-                            <article class="box excerpt">
-                                <img class="image left" src="/assets/images/pic03.jpg" alt="" />
+                            <article class="box excerpt d-flex">
+                                <img class="imagemActivity" src="{{ $activity->image ? asset('storage/' . $activity->image) : '/assets/images/pic04.png' }}" alt="{{ $activity->name }}" />
+
                                 <div>
                                     <header>
                                         <span class="date">DATA {{$activity->date}}</span>

@@ -36,10 +36,19 @@ class ActivityController extends Controller
     public function store(Request $request)
     {
         try {
+
+            $imagePath = null;
+            if ($request->image) {
+                $image = $request->file('image');
+                $imageName = time() . '_' . $image->getClientOriginalName();
+                $imagePath = $image->storeAs('Images/Atividades', $imageName, 'public');
+            }
+
             $activity = Activity::create([
                 'name' => $request->name,
                 'date' => $request->date,
                 'hours' => $request->hours,
+                'image' => $imagePath,
                 'description' => $request->description,
                 'vacancies' => $request->vacancies,
                 'event_id' => $request->event_id,

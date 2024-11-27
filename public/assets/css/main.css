@@ -591,7 +591,9 @@ table {
 .row.gtr-200.gtr-uniform>* {
 	padding-top: 100px;
 }
-
+.imagemActivity {
+	width: 50vh;
+  }
 @media screen and (max-width: 1280px) {
 
 	.row {
@@ -1497,7 +1499,9 @@ table.default thead {
 
 .image img {
 	display: block;
-	width: 100%;
+	width: 300px;
+    height: 300px;
+    object-fit: cover;
 	border-radius: 8px;
 }
 
@@ -1507,7 +1511,6 @@ table.default thead {
 	position: absolute;
 	left: 0;
 	top: 0;
-	background: url("images/bg01.png");
 	width: 100%;
 	height: 100%;
 	opacity: 0.75;
@@ -1867,7 +1870,6 @@ ol.default li {
 /* Wrappers */
 
 #header-wrapper {
-	background: url("images/bg01.png"), url("../../images/header.jpg");
 	background-position: top left, center center;
 	background-size: auto, cover;
 	padding: 3em 0;
@@ -1996,6 +1998,18 @@ ol.default li {
 /* Large */
 
 @media screen and (max-width: 1280px) {
+
+	.image img {
+		display: block;
+		object-fit: cover;
+		border-radius: 8px;
+		width: 15vh;
+		height: 15vh;
+	  }
+
+	  .imagemActivity {
+		width: 20vh !important;
+	  }
 
 	/* Basic */
 
@@ -2335,7 +2349,7 @@ ol.default li {
 	/* Image */
 
 	.image.left {
-		width: 25%;
+		width: 28%;
 	}
 
 	/* Button */
@@ -2374,7 +2388,7 @@ ol.default li {
 	}
 
 	.box.excerpt header {
-		margin-left: 32%;
+		margin-left: 10%;
 	}
 
 	.box.excerpt p {
@@ -2458,3 +2472,5 @@ a:hover {
 	border-radius: 5px;
 	padding: 5px 1em !important;
   }
+
+ 

@@ -12,7 +12,7 @@
 		<x-menu />
 		<div id="page-wrapper">
 			@yield('content')
-			@include('components.notify')
+		
 			
 			<x-footer />
 		</div>
