@@ -15,7 +15,7 @@
                             <h2 class="icon fa-file-alt">{{$activity->name}}</h2>
                             <article class="box excerpt d-flex">
                                 <img class="imagemActivity" src="{{ $activity->image ? asset('storage/' . $activity->image) : '/assets/images/Defalt.png' }}" alt="{{ $activity->name }}" />
-                                  
+
                                 <div class="ml-2">
                                     <header>
                                         <span class="date">DATA {{$activity->date}}</span>
@@ -55,6 +55,17 @@
                                     </tbody>
                                     @endforeach
                                 </table>
+                            <div class="d-flex justiy-content-around">
+
+                                <form action="{{ route('roll-call', [$activity->id]) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-primary">Gerar Chamada</button>
+                                </form>
+
+                                
+                            </div>
+
+
                             </div>
 
                         </section>

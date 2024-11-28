@@ -3,6 +3,7 @@
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PdfController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
@@ -42,6 +43,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/end-event/{eventId}', [EventController::class, 'update'])->name('end.event');
     Route::post('/resume-event/{eventId}', [EventController::class, 'resume'])->name('resume.event');
     
+    Route::post('roll-call/{activityId}', [PdfController::class, 'store'])->name('roll-call');
     
 });
 
