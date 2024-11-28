@@ -7,7 +7,7 @@
     <div class="row d-flex justify-content-center">
         <div class="col-xl-7 col-lg-8 col-md-9 col-9 text-center">
             <div class="card">
-                <form class="form-card"  method="POST" action="{{ route('register') }}">
+                <form class="form-card"  method="POST" action="{{ route('RegisterNewAdm') }}">
                 @csrf
                     <div class="row justify-content-between text-left">
                         <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Nome </label> <input type="text" id="name" name="name" placeholder="Nome Completo"> </div>
