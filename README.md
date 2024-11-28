@@ -24,11 +24,11 @@ A plataforma permite a criação de eventos e a atribuição de atividades a ele
 
 ## Tecnologias Utilizadas
 
-- **Frontend**: O frontend foi desenvolvido utilizando **HTML**, **CSS**, **JavaScript** e **React** para garantir uma interface de usuário dinâmica e intuitiva.
+- **Frontend**: O frontend foi desenvolvido utilizando **HTML**, **CSS**, **JavaScript** para garantir uma interface de usuário dinâmica e intuitiva.
   
-- **Backend**: O backend do sistema foi desenvolvido utilizando **Node.js** e **Express.js**, permitindo uma estrutura robusta e escalável.
+- **Backend**: O backend do sistema foi desenvolvido utilizando **PHP** e **LARAVEL**, permitindo uma estrutura robusta e escalável.
 
-- **Banco de Dados**: Utilizamos **MongoDB** para armazenamento de dados, garantindo alta disponibilidade e performance nas operações de leitura e escrita.
+- **Banco de Dados**: Utilizamos **MySQL** para armazenamento de dados, garantindo alta disponibilidade e performance nas operações de leitura e escrita.
 
 - **Responsividade**: A interface é desenvolvida com **Bootstrap** e técnicas de **CSS Grid** e **Flexbox**, assegurando a adaptação do layout para diferentes dispositivos.
 
@@ -52,13 +52,13 @@ A plataforma permite a criação de eventos e a atribuição de atividades a ele
 
 1. **Clone o repositório**:
    ```bash
-   git clone <URL do repositório>
+   git clone <https://github.com/Leon14789/Events>
 
 ## Instale as dependências:
     ```bash
         npm install
         composer install
-    ```
+     
 
 <h1> Conclusão</h1>
 Este sistema visa simplificar e agilizar o gerenciamento de eventos e atividades na ETEC Elias Miguel Junior, com uma interface amigável e funcionalidades completas para a gestão de inscrições e controle de presença. Sua implementação elimina a necessidade de processos manuais e garante a organização de todos os dados envolvidos, tornando o trabalho administrativo mais eficiente e livre de erros.
