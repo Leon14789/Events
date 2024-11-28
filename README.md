@@ -55,7 +55,6 @@ A plataforma permite a criação de eventos e a atribuição de atividades a ele
    git clone <https://github.com/Leon14789/Events>
 
 ## Instale as dependências:
-    ```bash
         npm install
         composer install
      
