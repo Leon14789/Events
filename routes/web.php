@@ -43,8 +43,13 @@ Route::middleware('auth')->group(function () {
     Route::post('/end-event/{eventId}', [EventController::class, 'update'])->name('end.event');
     Route::post('/resume-event/{eventId}', [EventController::class, 'resume'])->name('resume.event');
     
-    Route::post('roll-call/{activityId}', [PdfController::class, 'store'])->name('roll-call');
+    Route::post('roll-call/{activityId}', [PdfController::class, 'storeRollCall'])->name('roll-call');
+    Route::post('generate-certificate/{studentId}', [PdfController::class, 'storeCertificate'])->name('Certificate');
     
+});
+
+Route::get('dunga-burro', function() {
+    return view('Pdf.teste');
 });
 
 

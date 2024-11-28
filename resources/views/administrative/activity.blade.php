@@ -33,7 +33,8 @@
                                             <th scope="col">Registro Geral</th>
                                             <th scope="col">Turma</th>
                                             <th scope="col">Período</th>
-                                            <th scope="col">Ação</th>
+                                            <th scope="col">Certificar</th>
+                                            <th scope="col">Apagar</th>
 
                                         </tr>
                                     </thead>
@@ -44,6 +45,12 @@
                                             <td> {{$student->rg}} </td>
                                             <td> {{$student->class}} </td>
                                             <td> {{$student->period}} </td>
+                                            <td>
+                                                <form action="{{ route('Certificate', [$student->id]) }}" method="POST" style="display:inline;">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-secondary link">CERTIFICADO</button>
+                                                </form>
+                                            </td>
                                             <td>
                                                 <form action="{{ route('destroy-student', [$student->id]) }}" method="POST" style="display:inline;">
                                                     @csrf
